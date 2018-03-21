@@ -11,17 +11,21 @@ namespace RainbowPoop
             var emojiPlaceHolders = regEx.Matches(subject);
             var emojiTag = string.Empty;
 
-            for (int i = 0; i < emojiPlaceHolders.Count; i++)
+            if(emojiPlaceHolders.Count > 0)
             {
-                emojiTag = emojiPlaceHolders[i].Value.ToString().Replace(":", string.Empty).ToLower();
+                for (int i = 0; i < emojiPlaceHolders.Count; i++)
+                {
+                    emojiTag = emojiPlaceHolders[i].Value.ToString().Replace(":", string.Empty).ToLower();
 
-                var emoji = GetEmojiByTagName(emojiTag);
+                    var emoji = GetEmojiByTagName(emojiTag);
 
-                if (emoji == null)
-                    subject = subject.Replace(emojiPlaceHolders[i].Value, "");
-                else
-                    subject = subject.Replace(emojiPlaceHolders[i].Value, emoji.ToString());
+                    if (emoji == null)
+                        subject = subject.Replace(emojiPlaceHolders[i].Value, "");
+                    else
+                        subject = subject.Replace(emojiPlaceHolders[i].Value, emoji.ToString());
+                }
             }
+            
             return subject;
         }
 
