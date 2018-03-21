@@ -12,11 +12,11 @@ namespace RainbowPoop.Tests
     public class EmojiPluginTest
     {
 
-            [TestMethod]
-            public void It_inserts_Smiling()
-            {
-                var result = EmojiPlugin.InsertEmoji("hello world :Smiling:");
-                Assert.AreEqual("hello world ☺", result);
-            }
+        [TestMethod]
+        public void It_inserts_Smiling()
+        {
+            var result = EmojiPlugin.InsertEmoji("hello world :Smiling:");
+            Assert.AreEqual("hello world ☺", result);
+        }
     }
 }
